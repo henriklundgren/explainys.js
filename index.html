@@ -1,0 +1,95 @@
+<!DOCTYPE html>  
+<html lang='en'>
+<head>  
+<title>jQuery explainys</title>  
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/inverse.css">
+<link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+
+<div id='header' class='container'>
+	<header class='inverse-color nine columns'>
+		<h1>Explainys.js</h1>
+		<h2>jQuery plugin</h2>
+	</header>
+</div>
+
+<div id='main' class='container'>
+	<article class='nine columns clearfix'>
+		<h2>Headline H2 - Level 1</h2>
+		<p>
+			Lorem ipsum dolor sit amet, <span class='explain' title='consensus' data='To reach a decision that everyone aggress on. Some say it is the only way to move forward. Others say the price is too high.'>consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat.</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<h3>Headline H3 - Level 2</h3>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et <span class='explain' title='title' data='jaha vad ska jagskriva här?'>dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat.</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat.</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat.</p>
+		<h3>Headline H3 - Level 2</h3>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation <span class='explain' title='lorem ipsum' data='In publishing and graphic design, lorem ipsum is placeholder text (filler text) commonly used to demonstrate the graphics elements of a document or visual presentation, such as font, typography, and layout, by removing the distraction of meaningful content.'>ullamco laboris nisi ut aliquip ex ea commodo
+		consequat.</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat.</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat.</p>
+
+	</article>
+
+	<aside id='sidecontent' class='three columns clearfix'>
+		<!-- explainys goes in here -->
+	</aside>
+
+	
+</div>
+	
+
+<div id='footer' class='container clearfix'>
+	<footer class='inverse-color colorific nine columns'>
+		<address>For more details <a href='#'>heni</a></address>
+		<p><small>copyleft 2012</small></p>
+	</footer>
+</div>
+
+<script src="js/jquery-1.8.0.min.js"></script>
+<script src="js/jquery.explainys.js"></script>
+
+<script type="text/javascript">  
+  $().ready(function() {
+  // target the specific area, if not it creates lagg 
+   $('#main').explainys();  
+  });  
+ </script>
+
+</body>
+</html>

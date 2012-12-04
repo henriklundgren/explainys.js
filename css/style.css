@@ -365,7 +365,7 @@ table caption { /* table headlines */
   border: thin solid;
 }*/
 
-#header > header { background: lightblue; padding: 20px 10px; }
-#main > article { background: #f7f7f7; padding: 20px 10px;}
+#header header { background: lightblue; padding: 20px 10px; }
+#main article { background: #f7f7f7; padding: 20px 10px;}
 #sidecontent { }
-#footer > footer { background: #333; padding: 10px; }
+#footer footer { background: #333; padding: 10px; }

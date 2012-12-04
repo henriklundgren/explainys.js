@@ -10,14 +10,20 @@
 <body>
 
 <div id='header' class='container'>
-	<header class='inverse-color nine columns'>
+	<div class='inverse-color colorific ten columns offset-by-three'>
+	<header class='clearfix'>
 		<h1>Explainys.js</h1>
 		<h2>jQuery plugin</h2>
 	</header>
 </div>
+</div>
 
 <div id='main' class='container'>
-	<article class='nine columns clearfix'>
+	<div class='three columns clearfix'>
+		aside-left
+	</div>
+	<div class='ten columns clearfix'>
+		<article>
 		<h2>Headline H2 - Level 1</h2>
 		<p>
 			Lorem ipsum dolor sit amet, <span class='explain' title='consensus' data='To reach a decision that everyone aggress on. Some say it is the only way to move forward. Others say the price is too high.'>consectetur adipisicing elit, sed do eiusmod
@@ -65,21 +71,26 @@
 		consequat.</p>
 
 	</article>
+	</div>
 
-	<aside id='sidecontent' class='three columns clearfix'>
+	<div id='sidecontent' class='three columns clearfix'>
 		<!-- explainys goes in here -->
-	</aside>
+	</div>
 
 	
 </div>
 	
 
 <div id='footer' class='container clearfix'>
-	<footer class='inverse-color colorific nine columns'>
+	<div class='inverse-color colorific ten columns offset-by-three'>
+		<footer>
 		<address>For more details <a href='#'>heni</a></address>
 		<p><small>copyleft 2012</small></p>
-	</footer>
+		</footer>
+	</div>
 </div>
+
+
 
 <script src="js/jquery-1.8.0.min.js"></script>
 <script src="js/jquery.explainys.js"></script>

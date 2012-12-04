@@ -33,9 +33,9 @@
     	console.log('span' + (index + 1) + ':' + $(this).attr('title') + $(this).attr('data') + ptr.top + 'amount' + $many + 'height' + $htr );
 
     	// append the divs and fill them with data
-    	$('<div />', {'class': options.divClass, 'css': {'top':'0'}}).appendTo(options.targetDiv).html('<h6 style="font:bold 11px/1.4 Verdana; letter-spacing:0;">' + $(this).attr('title') + '</h6>' + '<p style="font: normal 11px/1.3 Verdana; margin:0;">' + $(this).attr('data') + '</p>' + '<small>' + (index + 1) + '</small>').css({'top': ptr.top -$ltr, 'border-radius': options.divBorderRadius, 'background-color': options.divBackground, 'border-right': 'medium solid grey', 'padding': '10', 'position':'relative',});
-   
-
+    	$('<div />', {'class': options.divClass, 'css': {'top':'0'}})
+            .appendTo(options.targetDiv).html('<h6 style="font:bold 11px/1.4 Verdana; letter-spacing:0;">' + $(this).attr('title') + '</h6>' + '<p style="font: normal 11px/1.3 Verdana; margin:0;">' + $(this).attr('data') + '</p>' + '<small>' + (index + 1) + '</small>')
+            .css({'top': ptr.top -$ltr, 'border-radius': options.divBorderRadius, 'background-color': options.divBackground, 'border-right': 'medium solid grey', 'padding': '10', 'position':'relative',});
 		});
 
 };

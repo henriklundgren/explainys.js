@@ -46,7 +46,16 @@
             // #3. fill the DIV(s) with data
             .html('<h6 style="font:bold 11px/1.4 Verdana; letter-spacing:0;">' + $(this).attr('title') + '</h6>' + '<p style="font: normal 11px/1.3 Verdana; margin:0;">' + $(this).attr('data') + '</p>' + '<small>' + (index + 1) + '</small>')
             // #4. add some css to the DIV(s)
-            .css({'top': ptr -$ltr, 'border-radius': options.divBorderRadius, 'background-color': options.divBackground, 'border-right': 'medium solid grey', 'padding': '10', 'position':'absolute',});
+            .css({'top': ptr -$ltr, 'border-radius': options.divBorderRadius, 'background-color': options.divBackground, 'border-right': 'medium solid grey', 'padding': '10', 'position':'absolute',})
+            .click(function() {
+                // Output to console
+                console.log('hover');
+                $('.explain').css('background-color', 'pink');
+
+            });
+
+
+           
 		});
 
 };

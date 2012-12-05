@@ -388,6 +388,7 @@ table caption { /* table headlines */
   
   -webkit-border-image: url("../img/border-new7.png") 0 5 0 5 repeat;
   border-image: url("../img/border-new7.png") 0 5 0 5 repeat;
+  border-radius: 3px;
   border-width: 0 5px 0 5px;
   border-top: medium solid;
   box-shadow: 2px 0 3px hsl(0,0%,66%), -2px 0 3px hsl(0,0%,66%);

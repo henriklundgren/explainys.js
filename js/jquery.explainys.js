@@ -10,32 +10,43 @@
         };
         var options = $.extend(defaults, options);
        
- 		// loop through the text and find the words
+ 		// loop/look through the text and find the html span element with
+        // option spanClass. Which default is class explain.
+        // Each time jQuery finds it do (function)... 
 		$(options.spanClass).each(function(index, value) { //function here
 
-        // Insert referencenumber before the word
-        $('<sup>' + (index + 1) + '</sup>').insertBefore(this);
+            // Console output (how many span.explain found) for debugging
+            // javascript is zerobased, +1 indicates that output should be plus one.
+            console.log('span: ' + (index + 1));
+
+            // Insert reference number before the word on every word
+            // Common practice for footnotes.
+            $('<sup>' + (index + 1) + '</sup>').insertBefore(this);
 		
-        // get the position of the words
-		var ptr = jQuery(this).position();
+            // get the vertical position of the words and cache it
+            var ptr = jQuery(this).position().top;
+            // Output to console
+            console.log('vertical position: ' + ptr + 'px');
 
-        // get height of span and position it
-        var $ltr = jQuery(this).height()*1;
-
-        // get the height of div elements EXPERIMENTAL 
-        var $htr = jQuery('.explain_it').outerHeight()*1.8;
-        var $many = jQuery('div.explain_it').length+1;
-
-        // default styles
-        
-
-    	// outputs result to console
-    	console.log('span' + (index + 1) + ':' + $(this).attr('title') + $(this).attr('data') + ptr.top + 'amount' + $many + 'height' + $htr );
+            // get computed height of span/word
+            // This is to precision position the div
+            // Could also get it from the css line-height attr.
+            var $ltr = jQuery(this)
+                .css('display', 'inline-block')
+                .height();
+            // Output to console
+            console.log('Height of span: ' + $ltr + 'px');
 
     	// append the divs and fill them with data
+
+        // #1. Create a DIV 
     	$('<div />', {'class': options.divClass, 'css': {'top':'0'}})
-            .appendTo(options.targetDiv).html('<h6 style="font:bold 11px/1.4 Verdana; letter-spacing:0;">' + $(this).attr('title') + '</h6>' + '<p style="font: normal 11px/1.3 Verdana; margin:0;">' + $(this).attr('data') + '</p>' + '<small>' + (index + 1) + '</small>')
-            .css({'top': ptr.top -$ltr, 'border-radius': options.divBorderRadius, 'background-color': options.divBackground, 'border-right': 'medium solid grey', 'padding': '10', 'position':'relative',});
+            // #2. append the DIV(s) to a container
+            .appendTo(options.targetDiv)
+            // #3. fill the DIV(s) with data
+            .html('<h6 style="font:bold 11px/1.4 Verdana; letter-spacing:0;">' + $(this).attr('title') + '</h6>' + '<p style="font: normal 11px/1.3 Verdana; margin:0;">' + $(this).attr('data') + '</p>' + '<small>' + (index + 1) + '</small>')
+            // #4. add some css to the DIV(s)
+            .css({'top': ptr -$ltr, 'border-radius': options.divBorderRadius, 'background-color': options.divBackground, 'border-right': 'medium solid grey', 'padding': '10', 'position':'absolute',});
 		});
 
 };

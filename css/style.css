@@ -365,7 +365,24 @@ table caption { /* table headlines */
   border: thin solid;
 }*/
 
-#header header { background: lightblue; padding: 20px 10px; }
+#header hgroup h1 {
+  color: #333;
+  font-size: 3rem;
+}
+#header hgroup h2 {
+  font-size: 1.4rem;
+  color: red;
+}
+#header header {
+  background: #E8FFE4;
+  padding: 20px 10px;
+  box-shadow: 2px 0 3px hsl(0,0%,66%), -2px 0 3px hsl(0,0%,66%);
+  -webkit-border-image: url("../img/border5.png") 0 0 0 10 repeat;
+  border-image: url("../img/border5.png") 0 8 0 8 repeat;
+  border-width: 8px;
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
 #main article {
   background: url('../img/exclusive_paper.png') #f7f7f7;
   -webkit-border-image: url("../img/border5.png") 0 0 0 10 repeat;

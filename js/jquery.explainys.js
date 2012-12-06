@@ -38,7 +38,10 @@
 
             // get the explain text in data-explain
             var $datatext = $(this).data('explain');
-            var $datafail = 'data avbruten';
+            var $datafail = 'Nothing defined';
+            var $datatitle = $(this).text();
+
+            console.log($datatitle);
            
     	// create, append and fill the div(s) with data
         if (typeof $datatext !== 'undefined' && $datatext.length > 0) {
@@ -60,6 +63,7 @@
                 $('.explain').wrap('<mark />');
 
             });
+            // Else show datafail
             } else {
             console.log($datafail);
 

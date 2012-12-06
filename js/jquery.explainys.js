@@ -38,18 +38,20 @@
 
             // get the explain text in data-explain
             var $datatext = $(this).data('explain');
-
-            if ($datatext < 0) {
-                $(this).text('Inget att visa');
+            var $datafail = 'data avbruten';
+           
+            if (typeof $datatext !== 'undefined' && $datatext.length > 0) {
+            console.log($datatext);
+            } else {
+            console.log($datafail);
             }
-            
-
             // console output
-            console.log('Text: ' + $datatext);
+            
 
     	// append the divs and fill them with data
 
-        // #1. Create a DIV 
+        // #1. Create a DIV
+
     	$('<div />', {'class': options.divClass, 'css': {'top':'0'}})
             // #2. append the DIV(s) to a container
             .appendTo(options.targetDiv)

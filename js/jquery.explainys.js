@@ -40,21 +40,13 @@
             var $datatext = $(this).data('explain');
             var $datafail = 'data avbruten';
            
-            if (typeof $datatext !== 'undefined' && $datatext.length > 0) {
-            console.log($datatext);
-            } else {
-            console.log($datafail);
-            }
-            // console output
-            
-
-    	// append the divs and fill them with data
+    	// create, append and fill the div(s) with data
+        if (typeof $datatext !== 'undefined' && $datatext.length > 0) {
 
         // #1. Create a DIV
-
-    	$('<div />', {'class': options.divClass, 'css': {'top':'0'}})
+        $('<div />', {'class': options.divClass, 'css': {'top':'0'}})
             // #2. append the DIV(s) to a container
-            .appendTo(options.targetDiv)
+            .appendTo(options.targetDiv)    
             // #3. fill the DIV(s) with data
             .html('<span>' + (index + 1) + '. ' + '</span>' + '<h6 style="font:bold 11px/1.4 Verdana; letter-spacing:0; display: inline;">' + $(this).attr('title') + '</h6>' + '<p style="font: normal 11px/1.3 Verdana; margin:0;">' + $datatext + '</p>')
             // #4. add some css to the DIV(s)
@@ -68,6 +60,20 @@
                 $('.explain').wrap('<mark />');
 
             });
+            } else {
+            console.log($datafail);
+
+            $('<div />', {'class': options.divClass, 'css': {'top':'0'}})
+            // #2. append the DIV(s) to a container
+            .appendTo(options.targetDiv)    
+            // #3. fill the DIV(s) with data
+            .html('<span>' + (index + 1) + '. ' + '</span>' + '<h6 style="font:bold 11px/1.4 Verdana; letter-spacing:0; display: inline;">' + $(this).attr('title') + '</h6>' + '<p style="font: normal 11px/1.3 Verdana; margin:0;">' + $datafail + '</p>')
+            // #4. add some css to the DIV(s)
+            // 3d with '-webkit-transform': 'skewY(10deg)', '-webkit-transform-style': 'preserve-3d', '-webkit-backface-visibility': 'hidden', 
+            .css({'top': ptr -$ltr, 'border-radius': options.divBorderRadius, 'background-color': options.divBackground, 'border-right': 'medium solid grey', 'padding': '10', 'position':'absolute',})
+
+
+            }
 
 
            

@@ -50,7 +50,9 @@
             .click(function() {
                 // Output to console
                 console.log('hover');
-                $('.explain').css('background-color', 'pink');
+
+                // apply background color
+                $('.explain').wrap('<mark />');
 
             });
 

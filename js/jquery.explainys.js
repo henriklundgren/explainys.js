@@ -47,15 +47,19 @@
         if (typeof $datatext !== 'undefined' && $datatext.length > 0) {
 
         // #1. Create a DIV
-        $('<div />', {'class': options.divClass, 'css': {'top':'0'}})
+        $('<div />', {'class': options.divClass})
+
             // #2. append the DIV(s) to a container
-            .appendTo(options.targetDiv)    
+            .appendTo(options.targetDiv)
+
             // #3. fill the DIV(s) with data
-            .html('<span>' + (index + 1) + '. ' + '</span>' + '<h6 style="font:bold 11px/1.4 Verdana; letter-spacing:0; display: inline;">' + $(this).attr('title') + '</h6>' + '<p style="font: normal 11px/1.3 Verdana; margin:0;">' + $datatext + '</p>')
+            .html('<span>' + (index + 1) + '. ' + '</span>' + '<h6>' + $(this).attr('title') + '</h6>' + '<p>' + $datatext + '</p>')
+
             // #4. add some css to the DIV(s)
-            // 3d with '-webkit-transform': 'skewY(10deg)', '-webkit-transform-style': 'preserve-3d', '-webkit-backface-visibility': 'hidden', 
-            .css({'top': ptr -$ltr, 'border-radius': options.divBorderRadius, 'background-color': options.divBackground, 'border-right': 'medium solid grey', 'padding': '10', 'position':'absolute',})
-            .click(function() {
+            .css({'top': ptr -$ltr})
+
+            // #5. some action after click or hover
+            .on('mouseenter', function() {
                 // Output to console
                 console.log('hover');
 

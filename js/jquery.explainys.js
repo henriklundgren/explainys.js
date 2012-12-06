@@ -36,7 +36,16 @@
             // Output to console
             console.log('Height of span: ' + $ltr + 'px');
 
+            // get the explain text in data-explain
             var $datatext = $(this).data('explain');
+
+            if ($datatext < 0) {
+                $(this).text('Inget att visa');
+            }
+            
+
+            // console output
+            console.log('Text: ' + $datatext);
 
     	// append the divs and fill them with data
 

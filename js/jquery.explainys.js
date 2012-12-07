@@ -3,85 +3,76 @@
   
   var defaults = { // Some options, that I cant get to work :(
             divClass: "explain_it",
+            // divbg not used anymore
             divBackground: "oldlace",
+            // borderradius not used anymore
             divBorderRadius: "4px",
             spanClass: ".explain",
             targetDiv: "#sidecontent"
         };
         var options = $.extend(defaults, options);
        
- 		// loop/look through the text and find the html span element with
-        // option spanClass. Which default is class explain.
-        // Each time jQuery finds it do (function)... 
-		$(options.spanClass).each(function(index, value) { //function here
+ 		
+    // Each time jQuery finds span... 
+	$(options.spanClass).each(function(index, value) {
+    // cache $this so it only jumps in the pool once
+    var $this = $(this);
+    // get the vertical position
+    var ptr = $this.position().top;
+    // get computed height of span/word
+    // This is to precision position the div
+    var $ltr = $this.height();
+    // get the explain text in data-explain
+    var $datatext = $this.data('explain');
+    // Get the title text if given
+    var $datatitle = $this.attr('title');
+    // Set text if fail
+    var $datatextfail = 'Nothing defined';
+    // get the content of the span
+    var $datatitle_fail = $this.text();
 
-            // Console output (how many span.explain found) for debugging
-            // javascript is zerobased, +1 indicates that output should be plus one.
-            console.log('span: ' + (index + 1));
-
-            // Insert reference number before the word on every word
-            // Common practice for footnotes.
-            $('<sup>' + (index + 1) + '</sup>').insertBefore(this);
-		
-            // get the vertical position of the words and cache it
-            var ptr = jQuery(this).position().top;
-            // Output to console
-            console.log('vertical position: ' + ptr + 'px');
-
-            // get computed height of span/word
-            // This is to precision position the div
-            var $ltr = jQuery(this)
-                .css('display', 'inline-block') // irrelevant setting, but nice
-                .height();
-            // Output to console
-            console.log('Height of span: ' + $ltr + 'px');
-
-            // get the explain text in data-explain
-            var $datatext = $(this).data('explain');
-            var $datafail = 'Nothing defined';
-            var $datatitle = $(this).text();
-
-            console.log($datatitle);
-           
-    	// create, append and fill the div(s) with data
-        if (typeof $datatext !== 'undefined' && $datatext.length > 0) {
-
-        // #1. Create a DIV
-        $('<div />', {'class': options.divClass})
-
+    // Insert reference number
+        $('<sup />', {
+            text: (index + 1)
+        }).insertBefore($this);
+	
+        // #1. Create DIV(s)
+        $('<div />', {
+            class: options.divClass,
+            })
             // #2. append the DIV(s) to a container
             .appendTo(options.targetDiv)
-
-            // #3. fill the DIV(s) with data
-            .html('<span>' + (index + 1) + '. ' + '</span>' + '<h6>' + $(this).attr('title') + '</h6>' + '<p>' + $datatext + '</p>')
-
-            // #4. add some css to the DIV(s)
+            // #3. position the DIV(s)
             .css({'top': ptr -$ltr})
+            // #4 for each of the div
+            .each(function(){
+                var $that = $(this);
+                // number on div
+                var number = $('<span />', {
+                    class: 'numbers',
+                    text: (index + 1),
+                });
+                // append index number
+                $that.append(number);
+                // append title
+                if (typeof $datatitle !== 'undefined' && $datatitle.length > 0) {
+                    $that.append('<h6>' + $datatitle + '</h6>');
+                } else {
+                    $that.append('<h6>' + $datatitle_fail + '</h6>');
+                }
+                // append text
+                if (typeof $datatext !== 'undefined' && $datatext.length > 0) {
+                   $that.append('<p>' + $datatext + '</p>');
+                } else {
+                   $that.append('<p>' + $datatextfail + '</p>');
+                }
+            });// end each
 
-            // #5. some action after click or hover
-            .on('mouseenter', function() {
-                // Output to console
-                console.log('hover');
+            
 
-                // apply background color
-                $('.explain').wrap('<mark />');
+            
 
-            });
-            // Else show datafail
-            } else {
-            console.log($datafail);
-
-            $('<div />', {'class': options.divClass, 'css': {'top':'0'}})
-            // #2. append the DIV(s) to a container
-            .appendTo(options.targetDiv)    
-            // #3. fill the DIV(s) with data
-            .html('<span>' + (index + 1) + '. ' + '</span>' + '<h6 style="font:bold 11px/1.4 Verdana; letter-spacing:0; display: inline;">' + $(this).attr('title') + '</h6>' + '<p style="font: normal 11px/1.3 Verdana; margin:0;">' + $datafail + '</p>')
-            // #4. add some css to the DIV(s)
-            // 3d with '-webkit-transform': 'skewY(10deg)', '-webkit-transform-style': 'preserve-3d', '-webkit-backface-visibility': 'hidden', 
-            .css({'top': ptr -$ltr, 'border-radius': options.divBorderRadius, 'background-color': options.divBackground, 'border-right': 'medium solid grey', 'padding': '10', 'position':'absolute',})
-
-
-            }
+            
 
 
            

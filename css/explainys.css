@@ -1,0 +1,21 @@
+div.explain_it {
+ border-radius: 4px;
+ background-color: oldlace;
+ border-right: medium solid grey;
+ padding: 10px; 
+ position: absolute;
+ max-height: 80px;
+}
+div.explain_it .numbers {
+	font: bold 11px/1.4 Verdana;
+	margin-right: 3px;
+}
+div.explain_it h6 {
+  display: inline;
+  font:bold 11px/1.4 Verdana;
+  letter-spacing: 0;
+}
+div.explain_it p {
+  font: normal 11px/1.3 Verdana;
+ 
+}

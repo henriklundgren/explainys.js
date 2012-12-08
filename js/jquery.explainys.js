@@ -99,7 +99,7 @@
                 // append ref. number
                 $($that).find('summary').append(number);
 
-                
+
                 // append text
                 if (typeof $datatext !== 'undefined' && $datatext.length > 0) {
                    $that.append('<p>' + $datatext + '</p>');
@@ -111,9 +111,24 @@
 
             });// end each
 
-            
-
     });// end each
+
+
+    // open details block on hover
+    $('.explain_it').on({
+                    mouseenter: function() {
+                        console.log('open');
+                        $(this)
+                        // add open on hover
+                        .attr('open', 'open')
+                        // animate open
+                        .animate({backgroundColor: '#DFF9AE'}, 'slow');
+                    },
+                    mouseleave: function() {
+                        console.log('close');
+                        $(this).removeAttr('open');
+                    }                    
+                });
 
 };
         

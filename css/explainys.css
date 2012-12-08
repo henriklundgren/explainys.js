@@ -4,8 +4,11 @@ div.explain_it {
  border-right: medium solid grey;
  padding: 10px; 
  position: absolute;
- max-height: 80px;
+ 
+ width: inherit; /* IE7 and lower dont support inherit */
 }
+
+
 div.explain_it .numbers {
 	font: bold 11px/1.4 Verdana;
 	margin-right: 3px;
@@ -17,5 +20,22 @@ div.explain_it h6 {
 }
 div.explain_it p {
   font: normal 11px/1.3 Verdana;
- 
+ margin-bottom: 5px;
+ max-height: 30px;
+ overflow: hidden;
+}
+div.explain_it .henke { text-align: center; }
+div.explain_it .sylvie {
+	font: 11px/1 Arial;
+}
+/* do this better */
+div.explain_it .sylvie:before {
+	content: '---------';
+	position: absolute;
+	left: 10px;
+}
+div.explain_it .sylvie:after {
+	content: '---------';
+	position: absolute;
+	right: 10px;
 }

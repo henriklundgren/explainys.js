@@ -1,14 +1,23 @@
+/*!
+ * jQuery Explainys Plugin v0.1
+ *
+ */
+
 (function($) {
   $.fn.explainys = function() {
   
   var defaults = { // Some options, that I cant get to work :(
-            divClass: "explain_it",
-            // divbg not used anymore
-            divBackground: "oldlace",
-            // borderradius not used anymore
-            divBorderRadius: "4px",
+            // div class name - try to find a better name
+            divClass: "explain_it",            
+            // span name
             spanClass: ".explain",
-            targetDiv: "#sidecontent"
+            // where to place the div(s)?
+            targetDiv: "#sidecontent",
+            // text to show when no explanation given
+            textFail: "Nothing to show",
+            // minus or plus the div position
+            divPosition: +5,
+
         };
         var options = $.extend(defaults, options);
        
@@ -24,13 +33,11 @@
     var ptr = $this.position().top;
     // get computed height of span/word
     // This is to precision position the div
-    var $ltr = $this.height();
+    var $ltr = $this.height() + options.divPosition;
     // get the explain text in data-explain
     var $datatext = $this.data('explain');
     // Get the title text if given
     var $datatitle = $this.attr('title');
-    // Set text if fail
-    var $datatextfail = 'Nothing defined';
     // get the content of the span
     var $datatitle_fail = $this.text();
 
@@ -40,8 +47,12 @@
         $('<sup />', {
             text: (index + 1)
         }).insertBefore($this);
-	
 
+	// Read more/less
+        var sylvie = $('<button />', {
+            class: 'sylvie',
+            text: 'show more',
+            });
 
         // #1. Create DIV(s)
         $('<div />', {
@@ -87,9 +98,36 @@
                 if (typeof $datatext !== 'undefined' && $datatext.length > 0) {
                    $that.append('<p>' + $datatext + '</p>');
                 } else {
-                   $that.append('<p>' + $datatextfail + '</p>');
+                   $that.append('<p>' + options.textFail + '</p>');
                 }
-            });// end each
+            })// end each
+
+            // append truncate button div container
+            .append($('<div />', {
+                class: 'henke'
+            })
+            // append the actual html5 button
+            .append(sylvie))
+            // what happens when you push it?
+            // not working because the context is the full div
+            .on({
+                mouseenter: function() {
+                    console.log('hit');
+                    $(this)
+                    .parents().find('.explain_it > p')
+                    // add css background
+                    .css('max-height', 'auto')
+                    // animate mouseenter
+                    // (coloranimation not supported in vanilla jquery)
+                    .animate({backgroundColor: '#DFF9AE'}, 'slow');
+                    },
+                    click: function() {
+                    $(this)
+                    // remove css background
+                    .css('max-height', '30');
+                    }
+
+                    });
             
 
     });// end each

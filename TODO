@@ -5,7 +5,7 @@ DONE! #2 Ifelse statement for title. If title attribute show, else show content 
 #3 If no data-text given append Wikipedia information. See http://pmtarantino.github.com/wikiUp/ for info.
 Is this smart? Why would I want to do this?
 
-DONE! #4 Truncate text/div. WORKING WITH NOW. Solved with HTML5 details element.
+DONE! #4 Truncate text/div. Solved with HTML5 details element.
 
 #5 Better class name for div.
 
@@ -13,10 +13,21 @@ DONE! #6 Style the reference number in DIV.
 
 #7 Mediaqueries and stuff.
 
-#8 Add option to have details open by default.
+DONE! #8 Add option to have details open by default.
 
 #9 Deal with the effects of having an option to have details open by default.
 
 #10 CSS fixes to deal with long titles.
 
+#11 Change setting details open from $attr to $prop.
+
+#12 Click to have details block open when hovering them
+
+#13 Move the .next object(details element) away from expanded. My thought is to have jQuery get the position()
+of the current(hovered) and next, plus the current height() of current. Together it should suffice to have
+a solution.
+
+#14 Animate the background color on span elements. Though jQuery does not support that. And i am reluctant
+to work around it on my own. Hence the only real solution is to wait for jQuery team to come through.
+Or can the solution be to use what is called css hooks? http://api.jquery.com/jQuery.cssHooks/
 

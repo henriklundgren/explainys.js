@@ -19,6 +19,8 @@
             divPosition: 0,
             // class name for number on div
             divNumbers: "numbers",
+            // details open by default
+            divOpen: "closed",
 
         };
         var options = $.extend(defaults, options);
@@ -52,18 +54,20 @@
 
 	
 
-        // #1. Create DIV(s)
+        // Create html5 details element
         $('<details />', {
             class: options.divClass,
             })
-            // #2. append the DIV(s) to a container
+            // Options for the details default state
+            .attr(options.divOpen, options.divOpen)
+            // Append details element to target 
             .appendTo(options.targetDiv)
-            // #3. position the DIV(s)
+            // Position element
             .css({'top': ptr -$ltr})
-            // #4 for each of the div
+            // For each of the details element do this...
             .each(function(){
                 var $that = $(this);
-                // number on div
+                // Reference number
                 var number = $('<span />', {
                     class: options.divNumbers,
                     text: (index + 1),
@@ -71,40 +75,41 @@
                 
 
 
-                // highlight origin
+                // Highlight origin
                 $that.on({
                     mouseenter: function() {
                         $this
-                        // add css background
-                        .css('background-color', '#DFF9AE')
-                        // animate mouseenter
-                        // (coloranimation not supported in vanilla jquery)
-                        .animate({backgroundColor: '#DFF9AE'}, 'slow');
+                        // Add color background when hovering
+                        .css({'background-color': 'pink'})
                     },
                     mouseleave: function() {
                         $this
-                        // remove css background - inherit not supported by IE
-                        .css('background-color', 'inherit');
+                        // Remove color background when not hovering
+                        .css('background-color', 'transparent');
                     }                    
                 });
 
 
-                // append title
+                // Append title
                 if (typeof $datatitle !== 'undefined' && $datatitle.length > 0) {
+                    // Attribute title
                     $that.append('<summary>' + $datatitle + '</summary>');
                 } else {
+                    // Content of span
                     $that.append('<summary>' + $datatitle_fail + '</summary>');
                 }
 
-                // append ref. number
-                $($that).find('summary').append(number);
+                // Append ref. number
+                $that.find('summary').append(number);
 
 
-                // append text
+                // Append text
                 if (typeof $datatext !== 'undefined' && $datatext.length > 0) {
-                   $that.append('<p>' + $datatext + '</p>');
+                    // Attribute data-explain
+                    $that.append('<p>' + $datatext + '</p>');
                 } else {
-                   $that.append('<p>' + options.textFail + '</p>');
+                    // If non existing
+                    $that.append('<p>' + options.textFail + '</p>');
                 }
                 
                 
@@ -120,9 +125,7 @@
                         console.log('open');
                         $(this)
                         // add open on hover
-                        .attr('open', 'open')
-                        // animate open
-                        .animate({backgroundColor: '#DFF9AE'}, 'slow');
+                        .attr('open', 'open');
                     },
                     mouseleave: function() {
                         console.log('close');

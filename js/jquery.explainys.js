@@ -47,8 +47,10 @@
 
     // Insert reference number
         $('<sup />', {
-            text: (index + 1)
-        }).insertBefore($this);
+            text: (index + 1),
+        })
+        .css({'webkit-user-select': 'none'})
+        .insertBefore($this);
 
 	
 
@@ -132,7 +134,8 @@
                     .find('summary > span:first-child').addClass('explainTitle');
                 } else {
                     // Content of span
-                    $that.append('<summary>' + $datatitle_fail + '</summary>');
+                    $that.append('<summary>' + '<span>' + $datatitle_fail + '</span>' + '</summary>')
+                    .find('summary > span:first-child').addClass('explainTitle');
                 }
 
                 // Append ref. number

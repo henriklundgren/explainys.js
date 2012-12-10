@@ -28,7 +28,7 @@
 		<article>
 		<h2>Headline H2 - Level 1</h2>
 		<p>
-			Lorem ipsum dolor sit amet, <span class='explain' title='consectetur' data-explain='Even though "lorem ipsum" may arouse curiosity because of its resemblance to classical Latin, it is not intended to have meaning.'>consectetur</span> adipisicing elit, sed do eiusmod
+			Lorem ipsum dolor sit amet, <span class='explain' title='consectetur' data-explain='Even though "lorem ipsum" may arouse curiosity because of its resemblance to classical Latin, it is not intended to have meaning. Even though "lorem ipsum" may arouse curiosity because of its resemblance to classical Latin, it is not intended to have meaning.'>consectetur</span> adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 		consequat.</p>
@@ -76,7 +76,7 @@
 </div>
 	</div>
 
-	<div id='sidecontent' class='three columns clearfix'>
+	<div id='sidecontent' class='three columns clearfix' style='position: relative;'>
 		<!-- explainys goes in here -->
 	</div>
 
@@ -96,12 +96,15 @@
 
 
 <script src="js/jquery-1.8.0.min.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
 <script src="js/jquery.explainys.js"></script>
 
 <script type="text/javascript">  
   $().ready(function() {
   // target the specific area, if not it creates lagg try to be specific
-   $('#main').explainys({});  
+   $('#main').explainys({
+   	textFail: 'My own',
+   });  
   });  
  </script>
 

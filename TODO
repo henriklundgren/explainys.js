@@ -31,3 +31,14 @@ a solution.
 to work around it on my own. Hence the only real solution is to wait for jQuery team to come through.
 Or can the solution be to use what is called css hooks? http://api.jquery.com/jQuery.cssHooks/
 
+#15 The title is set with attribute title (or actual word inside span element).
+Change this behaviour to data-title instead since it better reflects the use case.
+
+#16 Add a nice frowny pixel img when no sidenote written. Maybe base64 it?
+
+#17 Collision detection for collapsed and expanded detail elements. Maybe jQuery UI position?
+
+#18 Clean up code related to detail block option open/closed
+
+#19 Consider putting the detail elements in a ordered list. It does fit the purpose.
+

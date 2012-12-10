@@ -3,8 +3,9 @@ details.explain_it {
  background-color: oldlace;
  border-right: medium solid grey;
  padding: 10px; 
- position: absolute;
-
+ /*position: relative;*/
+ margin-bottom: 20px;
+ width: 100%;
  width: inherit; /* IE7 and lower dont support inherit */
 }
 

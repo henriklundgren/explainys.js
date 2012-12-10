@@ -6,7 +6,7 @@
 (function($) {
   $.fn.explainys = function() {
   
-  var defaults = { // Some options, that I cant get to work :(
+  var defaults = { // Some options, that doesnt work outside this :(
             // div class name - try to find a better name
             divClass: "explain_it",            
             // span name
@@ -14,7 +14,7 @@
             // where to place the div(s)?
             targetDiv: "#sidecontent",
             // text to show when no explanation given
-            textFail: "Someone forgot to write the sidenote",
+            textFail: "Someone forgot to write the sidenote.&#9786;",
             // minus or plus the div position
             divPosition: 0,
             // class name for number on div
@@ -45,11 +45,15 @@
     var $datatitle_fail = $this.text();
 
 
+    
+
     // Insert reference number
         $('<sup />', {
             text: (index + 1),
         })
+        // Dont let users select the ref number
         .css({'webkit-user-select': 'none'})
+        // Insert ref number before the span
         .insertBefore($this);
 
 	
@@ -78,7 +82,7 @@
                     class: options.divNumbers,
                     text: (index + 1),
                     });
-                
+               
 
 
                 // Highlight origin & expand/open details element  
@@ -148,7 +152,8 @@
                     $that.append('<p>' + $datatext + '</p>');
                 } else {
                     // If non existing
-                    $that.append('<p>' + options.textFail + '</p>');
+                    $that.append('<p>' + options.textFail + '</p>')
+                    .removeAttr('open');
                 }
                 
                 

@@ -127,7 +127,9 @@
                 // Append title
                 if (typeof $datatitle !== 'undefined' && $datatitle.length > 0) {
                     // Attribute title
-                    $that.append('<summary>' + $datatitle + '</summary>');
+                    $that
+                    .append('<summary>' + '<span>' + $datatitle + '</span>' + '</summary>')
+                    .find('summary > span:first-child').addClass('explainTitle');
                 } else {
                     // Content of span
                     $that.append('<summary>' + $datatitle_fail + '</summary>');

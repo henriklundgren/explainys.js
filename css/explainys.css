@@ -4,9 +4,9 @@ details.explain_it {
  border-right: medium solid grey;
  box-shadow: 0 3px grey;
  padding: 10px; 
- /*position: relative;*/
+ position: absolute;
  margin-bottom: 20px;
- /*width: 100%;
+ width: 100%;
  width: inherit; /* IE7 and lower dont support inherit */
 }
 details.explain_it summary {

@@ -42,3 +42,6 @@ DUPLICATE OF #13 - #17 Collision detection for collapsed and expanded detail ele
 
 #19 Consider putting the detail elements in a ordered list. It does fit the purpose.
 
+#20 Investigate viewport awareness instead of collision detection. See http://www.appelsiini.net/projects/viewport
+
+

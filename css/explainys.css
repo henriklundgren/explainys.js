@@ -4,8 +4,12 @@ details.explain_it {
  border-right: medium solid grey;
  box-shadow: 0 3px grey;
  padding: 10px; 
- position: absolute;
+ /*position: auto;*/
  margin-bottom: 20px;
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ -o-box-sizing: border-box;
+ box-sizing: border-box;
  width: 100%;
  width: inherit; /* IE7 and lower dont support inherit */
 }
@@ -34,21 +38,33 @@ details.explain_it summary {
 details.explain_it p {
 	font: normal 11px/1.3 Verdana;
 	margin: 10px 0;
+	text-align: justify;
+	-ms-word-break: break-all;
+    word-break: break-all;
+	word-break: break-word; /* webkit */
 
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+        hyphens: auto;
 }
-
-details.explain_it .henke { text-align: center; }
-details.explain_it .sylvie {
-	font: 11px/1 Arial;
+details.explain_it a {
+	font-family: Sans-serif;
+	font-weight: bold;
+	margin-right: 3px;
+	text-decoration: none;
+	color: #333;
 }
-/* do this better */
-details.explain_it .sylvie:before {
-	content: '---------';
-	position: absolute;
-	left: 10px;
+details.explain_it a.explainLink:after {
+	content: 'S';
+	font-size: 1.2em;
+	font-family: 'FontAwesome';
+	font-weight: normal;
+	margin-left: 3px;
 }
-details.explain_it .sylvie:after {
-	content: '---------';
-	position: absolute;
-	right: 10px;
+details.explain_it a.explainMail:after {
+	content: '\004d';
+	font-size: 1.2em;
+	font-family: 'FontAwesome';
+	font-weight: normal;
+	margin-left: 3px;
 }

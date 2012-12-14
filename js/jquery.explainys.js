@@ -6,7 +6,7 @@
 (function($) {
   $.fn.explainys = function() {
   
-  var defaults = { // Some options, that doesnt work outside this :(
+  var defaults = { // Some options
             // div class name - try to find a better name
             divClass: "explain_it",            
             // span name
@@ -28,18 +28,25 @@
 
 
 
-    // Create mark element
+    // Create mark element.
+    // Just to get the color value.
     $('<mark />', {
         text: 'test',
         id: 'xyz123'
     })
     .appendTo('body')
     .css({'position': 'absolute', 'left': '-9999'});
-    // Get mark element background color
     mark = $('mark').css('background-color');
     $('#xyz123').remove();
     // console.log(mark);
 
+
+    // #1.a My collision detection method!!!
+
+    // Topvalue array
+    var topvalue_arr = [];
+    // Bottomvalue array
+    var bottomvalue_arr = [];
 
 
 
@@ -47,8 +54,10 @@
     // Each time jQuery finds span... 
 	$(options.spanClass).each(function(index, value, position) {
 
+//---------------------------------[start scope/wall]---------------------------//
+// variables can not leek outside this scope //
 
-    // Some variables
+
     var 
         // Only jump in the pool once.
         $this = $(this),
@@ -64,8 +73,10 @@
         $datatitle_fail = $this.text();
 
     
+    // #1.b Collision detection method
+    // Push top position to array
+    topvalue_arr.push(ptr);
     
-
     
 
     // Reference number before span
@@ -101,14 +112,20 @@
         .appendTo(options.targetDiv)
             
         // Position element
-        .css({'top': ptr -$ltr})
+        // add after ptr -$ltr 
+        .css({'top': ptr})
             
-        
 
 
         // For each of the details element do this...
         .each(function(name, i) {
+
+//---------------------------------[start scope/wall]---------------------------//
+// variables can not leek outside this scope //
             
+
+            
+
             var $that = $(this);
 
             // Reference number
@@ -218,7 +235,44 @@
 
                 // Append the links
                 $that.append(linky2).find('a.explainLink').wrap('<small>');
-                $that.append(maily).find('a.explainMail').wrap('<small>');
+                
+                $that.append(maily)
+                    .find('a.explainMail')
+                    .wrap('<small>')
+                .on({
+                    mouseenter: function() {
+                        console.log('you are hovering mail link');
+                       
+                    },
+                    mouseleave: function() {     
+                    }
+                });
+
+
+
+
+
+
+                // #1.c Collision detection method
+                // Push bottom position (top position + element height) to array
+                bottomvalue_arr.push($(this).outerHeight() + ptr);
+
+        
+
+   
+
+               // If bottomvalue is greater or equal then *any* following topvalue,...
+        if (  bottomvalue_arr[0]  >=  topvalue_arr[1]  ) {
+            console.log('It is greater, so I have to move it further down.');
+            
+            console.log('But now the bottomvalue is incorrect! I have to trigger a reload.');
+            // bottomvalue_arr.length = 0;
+            
+                
+        }
+
+
+
 
 
             }); // end each for detail element 
@@ -228,41 +282,12 @@
 
 
 
+        
+     
 
-// This finally works!!! :)) My detection method
-
-// Topvalue array
-var topvalue_arr = [];
-// Bottomvalue array
-var bottomvalue_arr = [];
-
-// Populate the arrays
-$('.explain_it').each (function() {
-    // Push top position to array
-    topvalue_arr.push($(this).position().top);
-    // Push bottom position (top position + element height) to array
-    bottomvalue_arr.push($(this).outerHeight() + $(this).position().top);
-});
 console.log('topvalues: ' + topvalue_arr); // works!!!
 console.log('bottomvalues: ' + bottomvalue_arr); // works!!!
 
-// React to array values
-if (bottomvalue_arr[0] > topvalue_arr[1]) {
-    console.log('do something');
-    // target the second div and move it down
-    $('.explain_it').eq(1).css({'top': bottomvalue_arr[1]+60, 'border': '3px dashed red'});
-} else {
-    console.log('do nothing');
-}
-
-// React to array values
-if (bottomvalue_arr[1] > topvalue_arr[2]) {
-    console.log('do something');
-    // target the second div and move it down
-    $('.explain_it').eq(2).css({'top': bottomvalue_arr[2]+60, 'border': '3px dashed lightblue'});
-} else {
-    console.log('do nothing');
-}
 
 
 

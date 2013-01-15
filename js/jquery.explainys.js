@@ -3,8 +3,8 @@
  *
  */
 
-(function($) {
-  $.fn.explainys = function() {
+(function($) {//self-executing anonymous function
+  jQuery.fn.explainys = function(options) {
   
   var defaults = { // Some options
             // div class name - try to find a better name
@@ -41,12 +41,69 @@
     // console.log(mark);
 
 
+
+
+
+
+
+    // Dimension for modal window 
+    // Get the screen height and width
+    var maskHeight = $(document).height();
+    var maskWidth = $(window).width();
+    //Get the window height and width
+    var winH = $(window).height();
+    var winW = $(window).width();
+
+    
+    // Modal window
+    // I have to go through how to best implement it and make changes
+    var modal = $('<div />', {
+        class: 'explainysModal',
+        })
+        .css({
+            'position': 'fixed',
+            'z-index':'9977',
+            'width': '420px',
+            'height': '320px',
+
+            'border': '8px solid lightgrey',
+            'background-color': '#FFFAF1',
+            'padding': '20px',
+            'border-radius': '10px',
+            'box-shadow':  '1px 2px 3px hsla(0,0%,0%,.1), -1px -2px 3px hsla(0,0%,0%,.1), inset 0 3px white'
+            })
+        .html('<p>' + 'Detta är standard frasen' + '</p>');
+    // Mask for modal window.
+    $('<div />', {
+        id: 'mask'})
+    .appendTo('BODY')
+    .css({
+        'width': maskWidth,
+        'height': maskHeight,
+        'position': 'absolute',
+        'z-index': '9000',
+        'top': '0',
+        'background-color': 'hsla(0,0%,0%,.4)'
+        })
+    .hide();
+    // unneccesarry click function
+    // .click(function() {
+    //    $('div#mask').hide();
+    //});
+
+   
+
+
+
+
     // #1.a My collision detection method!!!
 
     // Topvalue array
     var topvalue_arr = [];
     // Bottomvalue array
     var bottomvalue_arr = [];
+
+
 
 
 
@@ -233,24 +290,57 @@
                             href: '#',
                             });
 
+                
+
                 // Append the links
                 $that.append(linky2).find('a.explainLink').wrap('<small>');
                 
+                
+
                 $that.append(maily)
                     .find('a.explainMail')
                     .wrap('<small>')
                 .on({
-                    mouseenter: function() {
-                        console.log('you are hovering mail link');
-                       
-                    },
-                    mouseleave: function() {     
+                    click: function(e) {
+                        // Modal window
+                        // Cancel the link behavior
+                        e.preventDefault();
+                        // console.log('you are clicking mail link');
+                      
+                        // Append the modal window
+                        modal
+                            .appendTo('BODY')
+                            .css({
+                                'top':  winH/2-$('.explainysModal').height()/2,
+                                'left': winW/2-$('.explainysModal').width()/2,
+                                })
+                            .html(
+                                '<a class="close" href="#">' + 'Close' + '</a>' + 
+                                '<h3 style="margin-bottom: 10px; text-transform: capitalize;">' + $datatitle + '</h3>' +
+                                '<p style="font-family: Sans-serif; font-size: 12px; line-height: 1.6;">' + $datatext + '</p>'
+                                )
+                            .show();
+                        
+
+                        
+                        
+                        // Transition effect     
+                        $('#mask')
+                        .fadeIn(500)
+                        .fadeTo("fast");
+
+                        //modal.css('top',  winH/2-$(id).height()/2);
+                        //modal.css('left', winW/2-$(id).width()/2);
+                        
+                        //if close button is clicked
+                        $('.explainysModal .close').click(function (e) {
+                            //Cancel the link behavior
+                            e.preventDefault();
+                            $('div#mask, div.explainysModal').hide();
+                            });  
+                    
                     }
                 });
-
-
-
-
 
 
                 // #1.c Collision detection method

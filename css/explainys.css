@@ -1,6 +1,6 @@
 details.explain_it {
  border-radius: 4px;
- background-color: oldlace;
+ background-color: #FFFAF1;
  border-right: medium solid grey;
  box-shadow: 0 3px grey;
  padding: 10px; 
@@ -67,4 +67,16 @@ details.explain_it a.explainMail:after {
 	font-family: 'FontAwesome';
 	font-weight: normal;
 	margin-left: 3px;
+}
+
+div.explanysModal {
+	background-color: #f7f7f7;
+}
+div.explanysModal p {
+	font-size: 12px;
+	font-family: Verdana !important;
+}
+a.close {
+	display: block;
+	text-align: right;
 }

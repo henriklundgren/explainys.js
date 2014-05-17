@@ -1,0 +1,107 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery explainys</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../dist/explainys.js-0.0.2.css">
+</head>
+<body>
+
+<a href="https://github.com/henriklundgren/explainys.js">
+  <img style="position: absolute; top: 0; right: 0; border: 0;z-index:9999" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></img>
+</a>
+
+<div class='header-wrapper'>
+  <div class='container-fluid'>
+    <header class='col-md-12'>
+      <h1>Explainys.js</h1>
+      <p>jQuery plugin</p>
+    </header>
+  </div>
+</div>
+
+
+<div class='main-wrapper'>
+  <div class='container-fluid'>
+
+    <div class='col-md-8'>
+      <div class='article-border'>
+        <article id="main">
+          <h2>Headline H2 - Level 1</h2>
+          <p> Lorem ipsum dolor sit amet, <span class='explain' data-title='consecteturconsectetur' data-explain='Even though "lorem ipsum" may arouse <small>curiosity</small> because of its resemblance to classical Latin, it is not <a href="#">intended</a> to have meaning. Even though "lorem ipsum" may arouse curiosity because of its resemblance to classical Latin, it is not intended to have meaning.'>consectetur</span> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut <span class='explain' data-title='labore' data-explain=''>labore</span> et dolore magna aliqua. Ut enim ad minim veniam,
+luis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+          <h3>Headline H3 - Level 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et <span class='explain' data-title='dolore' data-explain='Therefore publishers use lorem ipsum when displaying a typeface or design elements and page layout in order to direct the focus to the publication style and not the meaning of the text.'>dolore</span> magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat.</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat.</p>
+
+          <h3>Headline H3 - Level 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation <span class='explain' data-explain='In publishing and graphic design, lorem ipsum is placeholder text (filler text) commonly used to demonstrate the graphics elements of a document or visual presentation, such as font, typography, and layout, by removing the distraction of meaningful content.'>ullamco</span> laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat.</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+      </article>
+    </div>
+  </div>
+
+  <div id='sidecontent' class="col-md-4">
+    <!-- explainys goes in here -->
+  </div>
+</div>
+
+<div class='footer-wrapper'>
+  <div class='container-fluid'>
+    <footer class="col-md-12">
+      <address>For more details <a href='http://github.com/henriklundgren/explainys.js/'>heni</a></address>
+      <p><small>copyleft 2012</small></p>
+    </footer>
+  </div>
+</div>
+
+
+
+
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../dist/explainys.js-0.0.2.js"></script>
+
+<script type="text/javascript">
+  $().ready(function() {
+    // target the specific area, if not it creates lagg try to be specific
+    $('#main').explainys({
+      // options
+      textFail: 'Write your own failtext'
+    });
+  });
+</script>
+
+</body>
+</html>

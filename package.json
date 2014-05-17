@@ -1,8 +1,8 @@
 {
   "name": "explainys.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
-  "description": "Version 0.1 Alpha Experimental",
+  "description": "Simple sidenotes as jQuery plugin",
   "repository": {
     "type": "git",
     "url": "https://github.com/henriklundgren/explainys.js.git"

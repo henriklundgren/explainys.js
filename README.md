@@ -1,21 +1,29 @@
-Version 0.1 Alpha Experimental
+Version 0.0.2
+
+Explainys was my first jQuery plugin. When I wrote it I was fairly new to programming.
+It would benefit from a complete rewrite. But since I never used it I have little interest in doing so.
+This latest version is a massive cleanup. It is much cleaner. I have also introduced build tools.
 
 # explainys.js
-
 jQuery plugin to add sidenotes for your articles. It might be described as the opposite to hover bubbles.
 
 ## Usage
-Add plugin as usually done.
+Add plugin to page, after jQuery.
 
-On every and any word you want to give a footnote add a <span> class around. Fill the span with;
-* class='explain'
-* data-title='your_title' (fallback to actual word in between span tags)
-* data-explain='your_text' (if missing information text given)
+```js
+jQuery().ready(function() {
+  jQuery('#main').explainys({
+    // options
+    textFail: 'Write your own failtext'
+  });
+});
+```
 
-Important information
-* Implemented with html5 details element.
-  Chrome 12 and up is the only browser that has full support for this element.
-  No fallback methods implemented.
-* This function is implemented with the help of html5 data- attribute and jQuery.
-  Javascript enabled browser is a must.
+```html
+<span class="explain" data-title="" data-explain=""></span>
+```
 
+## Note
+Implemented with html5 details element.
+Chrome 12 and up is the only browser that has full support for this element.
+No fallback methods implemented.
